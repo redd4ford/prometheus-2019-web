@@ -32,6 +32,13 @@
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <!-- для автентифікації-->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
         <!--завдяки цьому можна працювати з вебом-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

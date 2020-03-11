@@ -2,7 +2,7 @@
 package com.prometheus.dbdisplay.domain;
 
 //аналог інклуда на С++
-import com.sun.org.apache.xpath.internal.operations.Bool;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
