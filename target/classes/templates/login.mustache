@@ -2,15 +2,16 @@
     <title>Spring Security Example </title>
 </head>
 <body>
-<div ${param.error}>
+<div id="param.error">
     Invalid username and password.
 </div>
-<div ${param.logout}>
+<div id="param.logout">
     You have been logged out.
 </div>
-<form method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
+<form action="/login" method="post">
+    <div><label> User Name: <input type="text" name="username"/> </label></div>
     <div><label> Password: <input type="password" name="password"/> </label></div>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
     <div><input type="submit" value="Sign In"/></div>
 </form>
 </body>
