@@ -37,10 +37,15 @@
 <body>
 <div>
     <a href="\">HOME</a> | <a href="\users">USERS</a><br><br>
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input type="submit" value="Sign Out" />
+    </form>
     <!--створення нової програми-->
          <div class="spoiler"><details>
              <summary>Create new program</summary>
          <form name="addnewpro" method="post" action="addprogram">
+             <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
              <br><b>Program type: </b>
          <input type="radio" name="programType" value="prog1" checked>Type of program 1
          <input type="radio" name="programType" value="prog2">Type of program 2
@@ -60,6 +65,7 @@
     <b>Programs List</b><br>
 <!--тут поле для фільтрації програм з БД-->
 <form name="programsfilter" method="post" action ="profil">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
     <input type="text" name="pfilter" placeholder="Fiter by program type..." />
     <button type="submit">Find</button>
 </form><br>
@@ -79,6 +85,7 @@
          <summary>Create new task</summary>
 
          <form name = "addnewtas" method="post" action="addtask">
+             <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
              <br><b>Task text:</b><br><br>
          <input type="text" name="taskText" placeholder="Task text" /><br><br>
              <b>Task status: </b>
@@ -96,6 +103,7 @@
 <b>Tasks List</b><br>
 <!--тут поле для фільтрації тасків з БД-->
 <form name="tasksfilter" method="post" action ="tasfil">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
     <input type="text" name="tfilter" placeholder="Fiter by task id..." />
     <button type="submit">Find</button>
 </form><br>
