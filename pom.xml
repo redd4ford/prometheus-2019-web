@@ -127,10 +127,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <target>13</target>
-                    <source>13</source>
-                </configuration>
             </plugin>
     <!--підключення мейвен-компілятора-->
             <plugin>
