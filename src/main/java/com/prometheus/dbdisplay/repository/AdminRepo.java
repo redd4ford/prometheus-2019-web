@@ -9,5 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 
 //інтерфейс, який забезпечує основні операції по пошуку, зберіганню, видаленню даних
 public interface AdminRepo extends CrudRepository<Admin, Long> {
-
+    Admin findByUsername(String adminUsername); //цей метод формується за принципом findBy + назва параметра, за яким буде здійснюватися пошук (фільтрація)
 }
+
+

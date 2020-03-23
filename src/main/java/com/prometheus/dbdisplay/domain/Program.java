@@ -25,7 +25,7 @@ public class Program {
   @Column
   private String comment;
   @ManyToOne
-  private Doctor doctor;
+  private Doctor doctor = new Doctor();
   @OneToMany(mappedBy = "program")
   private List<Task> tasks = new ArrayList<>();
   @OneToMany(mappedBy = "program")

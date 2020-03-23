@@ -12,7 +12,7 @@ import javax.persistence.*;
 
 // анотації (@) вказують спрінг буту, які частини коду за що відповідають, щоб він все швиденько
 // підняв при запуску.@Entity
-
+@Entity
 public class Doctor {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
