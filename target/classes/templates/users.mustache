@@ -35,14 +35,14 @@
     <div>
         <a href="\">HOME</a> | <a href="\programs">PROGRAMS</a><br><br>
         <form action="/logout" method="post">
-            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
             <input type="submit" value="Sign Out" />
         </form>
 
         <div class="spoiler"><details>
         <summary>Create new doctor</summary>
         <form name="addnewdoc" method="post" action="adddoctor">
-            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
             <br> <b>Name: </b>
             <input type="text" name="name" required placeholder="Name" /><br><br>
             <b>Gender: </b>
@@ -77,7 +77,7 @@
    <b>Doctors List</b><br>
 <!--тут поле для фільтрації лікарів з БД-->
 <form name="doctorsfilter" method="post" action ="docfil">
-    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
     <input type="text" name="dfilter" placeholder="Filter by name..." />
     <button type="submit">Find</button>
 </form><br>
@@ -99,7 +99,7 @@
 <div class="spoiler"><details>
     <summary>Create new parent account</summary>
     <form name = "addnewpar" method="post" action="addparent">
-        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
         <br><b>Username: </b>
         <input type="text" name="username" required placeholder="Username" /><br><br>
         <b>Country: </b>
@@ -123,7 +123,7 @@
         <b>Parents List</b><br>
 <!--тут поле для фільтрації батьків з БД-->
 <form name="parentsfilter" method="post" action ="parfil">
-    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
     <input type="text" name="pfilter" placeholder="Filter by name..." />
     <button type="submit">Find</button>
 </form><br>
@@ -142,7 +142,7 @@
 <div class="spoiler"><details>
     <summary>Create new kid</summary>
     <form name = "addnewkid" method="post" action="addkid">
-        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
         <br> <b>Name: </b>
         <input type="text" name="name" required placeholder="Name" /><br><br>
         <b>Gender: </b>
@@ -181,7 +181,7 @@
 <b>Kids List</b><br>
 <!--тут поле для фільтрації дітей з БД-->
 <form name="kidsfilter" method="post" action ="kidfil">
-    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
     <input type="text" name="kfilter" placeholder="Filter by name..." />
     <button type="submit">Find</button>
 </form><br>

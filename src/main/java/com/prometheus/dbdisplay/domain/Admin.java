@@ -2,7 +2,11 @@
 package com.prometheus.dbdisplay.domain;
 
 //аналог інклуда на С++
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Set;
 
 
@@ -10,8 +14,8 @@ import java.util.Set;
 // УВАГА: якщо назва таблички та/або назви змінних не співпадають з тими, що в БД, створює нову таблицю та/або нове поле!
 //анотації (@) вказують спрінг буту, які частини коду за що відповідають, щоб він все швиденько підняв при зп. це є зручнішим, ніж просте копіювання рядків з файлу конфігу XML
 @Entity
-@Table(name ="admin")
-public class Admin {
+@Table(name = "admin")
+public class Admin implements UserDetails {
   @Id
   @GeneratedValue(strategy= GenerationType.AUTO) //це і @Id кажуть, що наступна змінна - це primary key (автоматично інкрементується з кожним новим об'єктом)
   private int adminId;
@@ -20,10 +24,9 @@ public class Admin {
   private boolean active;
 
   @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-  @CollectionTable(name = "admin_roles", joinColumns = @JoinColumn(name = "admin_id"))
+  @CollectionTable(name = "admin_role", joinColumns = @JoinColumn(name = "admin_id"))
   @Enumerated(EnumType.STRING)
-
-  private Set<Role> roles;
+  private Set<Role> role;
 
   public Admin() { } //чомусь потрібно завжди створювати пустий конструктор, інакше воно все летить і не працює. я хз
 
@@ -53,7 +56,32 @@ public class Admin {
     return username;
   }
 
+  @Override
+  public boolean isAccountNonExpired() {
+    return true;
+  }
+
+  @Override
+  public boolean isAccountNonLocked() {
+    return true;
+  }
+
+  @Override
+  public boolean isCredentialsNonExpired() {
+    return true;
+  }
+
+  @Override
+  public boolean isEnabled() {
+    return getActive();
+  }
+
   public void setPassword(String password) { this.password = password; }
+
+  @Override
+  public Collection<? extends GrantedAuthority> getAuthorities() {
+    return getRole();
+  }
 
   public String getPassword() {
     return password;
@@ -63,9 +91,9 @@ public class Admin {
 
   public void setActive(boolean active) { this.active = active; }
 
-  public Set<Role> getRoles() { return roles; }
+  public Set<Role> getRole() { return role; }
 
-  public void setRoles(Set<Role> roles) { this.roles = roles; }
+  public void setRole(Set<Role> role) { this.role = role; }
 }
 
 
