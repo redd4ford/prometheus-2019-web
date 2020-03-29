@@ -37,11 +37,15 @@ public class Kid {
   private Integer height;
   @Column
   private String bloodType;
-  @Column
-  private int programId;
   @ManyToOne
+  @JoinColumn(name="programId")
   private Program program;
   @ManyToMany
+  @JoinTable(
+          name = "kidParent",
+          joinColumns = { @JoinColumn(name = "kidId") },
+          inverseJoinColumns = { @JoinColumn(name = "parentId") }
+  )
   private Set<Parent> parents = new HashSet<Parent>();
 
   // чомусь потрібно завжди створювати пустий конструктор, інакше воно все летить і не працює. я хз
@@ -146,12 +150,6 @@ public class Kid {
     return bloodType;
   }
 
-  public int getProgramId() {
-    return programId;
-  }
 
-  public void setProgramId(int programId) {
-    this.programId = programId;
-  }
 
 }
