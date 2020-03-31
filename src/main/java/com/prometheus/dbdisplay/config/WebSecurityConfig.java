@@ -1,7 +1,12 @@
 package com.prometheus.dbdisplay.config;
 
+import com.prometheus.dbdisplay.domain.Doctor;
+import com.prometheus.dbdisplay.repository.DoctorsRepo;
 import com.prometheus.dbdisplay.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
+import org.springframework.boot.autoconfigure.security.oauth2.resource.PrincipalExtractor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,6 +16,7 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
+@EnableOAuth2Sso
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   @Autowired
   private AdminService adminService;
@@ -40,5 +46,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
   }
-
+  @Bean
+  public PrincipalExtractor principalExtractor(DoctorsRepo doctorsRepo){
+    return map -> {
+      return new Doctor();
+    };
+  }
 }

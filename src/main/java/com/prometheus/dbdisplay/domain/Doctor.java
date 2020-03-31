@@ -13,9 +13,9 @@ import javax.persistence.*;
 // анотації (@) вказують спрінг буту, які частини коду за що відповідають, щоб він все швиденько
 // підняв при запуску.@Entity
 @Entity
+@Table(name = "doctor")
 public class Doctor {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
   // це і @Id кажуть, що наступна змінна - це primary key (автоматично інкрементується з кожним
   // новим об'єктом)
   private Integer doctorId;
