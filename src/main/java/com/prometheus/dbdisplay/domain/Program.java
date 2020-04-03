@@ -25,7 +25,8 @@ public class Program {
   @Column
   private String comment;
   @ManyToOne
-  private Doctor doctor = new Doctor();
+  @JoinColumn(name="doctorId")
+  private Doctor doctor;
   @OneToMany(mappedBy = "program")
   private List<Task> tasks = new ArrayList<>();
   @OneToMany(mappedBy = "program")

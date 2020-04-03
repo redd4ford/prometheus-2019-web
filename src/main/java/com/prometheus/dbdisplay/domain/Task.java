@@ -23,6 +23,7 @@ public class Task {
   @Column
   private String comment;
   @ManyToOne
+  @JoinColumn(name="programId")
   private Program program;
 
   // чомусь потрібно завжди створювати пустий конструктор, інакше воно все летить і не працює. я хз
@@ -58,16 +59,7 @@ public class Task {
     this.status = status;
   }
 
-  public char getStatus() {
-    char s;
-    if (status = true) {
-      s = 'v';
-    } else {
-      s = 'x';
-    }
-
-    return s;
-  }
+  public boolean getStatus() { return status; }
 
   public void setComment(String comment) {
     this.comment = comment;
