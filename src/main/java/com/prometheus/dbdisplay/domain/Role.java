@@ -1,12 +1,5 @@
 package com.prometheus.dbdisplay.domain;
 
-import org.springframework.security.core.GrantedAuthority;
-
-public enum Role implements GrantedAuthority {
+public enum Role {
     ADMIN;
-
-    @Override
-    public String getAuthority() {
-        return name();
-    }
 }
